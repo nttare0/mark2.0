@@ -1,0 +1,36 @@
+import ChatInterface from '@/components/app/chat-interface';
+import MathFormulasBackground from '@/components/app/math-formulas-background';
+import ThemeSwitcher from '@/components/app/theme-switcher';
+import { Button } from '@/components/ui/button';
+import { CodeXml } from 'lucide-react';
+import Link from 'next/link';
+import VoiceModeToggle from '@/components/app/voice-mode-toggle';
+
+export default function HomePage() {
+  return (
+    <div className="relative flex h-screen w-full flex-col items-center justify-center bg-background">
+      <MathFormulasBackground />
+      <div className="z-10 flex h-full w-full flex-col md:h-[95vh] md:max-w-4xl md:rounded-xl md:border md:shadow-2xl">
+        <header className="flex items-center justify-between border-b bg-card/80 p-4 backdrop-blur-sm md:rounded-t-xl">
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl font-bold tracking-tight text-primary">mark2.0</h1>
+            <p className="hidden text-sm text-muted-foreground md:block">
+              Your Conversational AI Assistant
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/code-editor">
+                <CodeXml className="mr-2 h-4 w-4" />
+                Vibe Coder
+              </Link>
+            </Button>
+            <VoiceModeToggle />
+            <ThemeSwitcher />
+          </div>
+        </header>
+        <ChatInterface />
+      </div>
+    </div>
+  );
+}
