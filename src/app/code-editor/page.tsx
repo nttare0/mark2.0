@@ -17,12 +17,39 @@ import Link from 'next/link';
 export default function CodeEditorPage() {
   const isMobile = useIsMobile();
 
+  const CoderLayout = () => {
+    if (isMobile) {
+      return (
+        <>
+          <ResizablePanel defaultSize={65} minSize={30}>
+            <CodeEditor />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={35} minSize={20}>
+            <ChatInterface />
+          </ResizablePanel>
+        </>
+      );
+    }
+    return (
+      <>
+        <ResizablePanel defaultSize={35} minSize={20}>
+          <ChatInterface />
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={65} minSize={30}>
+          <CodeEditor />
+        </ResizablePanel>
+      </>
+    );
+  };
+
   return (
     <div className="flex h-screen w-full flex-col bg-background">
       <header className="flex h-16 shrink-0 items-center justify-between border-b px-4 md:px-6">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2">
-            <h1 className="text-xl md:text-2xl font-bold tracking-tight text-primary">mark coder</h1>
+            <h1 className="text-xl font-bold tracking-tight text-primary md:text-2xl">mark coder</h1>
           </Link>
         </div>
         <div className="flex items-center gap-2">
@@ -41,13 +68,7 @@ export default function CodeEditorPage() {
           direction={isMobile ? 'vertical' : 'horizontal'}
           className="flex-1"
         >
-          <ResizablePanel defaultSize={35} minSize={20}>
-            <ChatInterface />
-          </ResizablePanel>
-          <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={65} minSize={30}>
-            <CodeEditor />
-          </ResizablePanel>
+          <CoderLayout />
         </ResizablePanelGroup>
       </main>
     </div>
