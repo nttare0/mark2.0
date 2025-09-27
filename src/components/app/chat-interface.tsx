@@ -127,7 +127,8 @@ export default function ChatInterface() {
     setIsLoading(true);
 
     try {
-      const aiResponse = await askAI(text);
+      const mode = isCodingMode ? 'coder' : 'assistant';
+      const aiResponse = await askAI(text, mode);
       let assistantMessage: Message;
       if (aiResponse.type === 'website' && aiResponse.website) {
         assistantMessage = {
@@ -249,7 +250,7 @@ export default function ChatInterface() {
   };
   
   return (
-    <div className="relative flex flex-1 flex-col overflow-hidden bg-card/80 backdrop-blur-sm">
+    <div className="relative flex h-full flex-col overflow-hidden bg-card/80 backdrop-blur-sm md:rounded-b-xl">
       {(isListening || listeningStatus === 'submitting') && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
           <RobotFace isListening={isListening} />
@@ -351,7 +352,7 @@ export default function ChatInterface() {
         </div>
         <div ref={messagesEndRef} />
       </ScrollArea>
-      <div className="border-t bg-background/50 p-2 md:p-4">
+      <div className="shrink-0 border-t bg-background/50 p-2 md:p-4">
         <form onSubmit={handleSubmit} className="flex items-start gap-2 md:gap-3">
           <Textarea
             ref={textareaRef}
