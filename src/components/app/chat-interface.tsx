@@ -39,7 +39,7 @@ export default function ChatInterface() {
   const pathname = usePathname();
   const isCodingMode = pathname.includes('/code-editor');
   const initialMessage = isCodingMode
-    ? 'Hello! I am Vibe Coder. How can I help you with your website today?'
+    ? 'Hello! I am mark coder. How can I help you with your website today?'
     : 'Hello! I am mark2.0. How can I assist you today?';
   
   const [messages, setMessages] = useState<Message[]>([

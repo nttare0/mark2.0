@@ -22,7 +22,7 @@ export default function HomePage() {
             <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
               <Link href="/code-editor">
                 <CodeXml className="h-4 w-4 md:mr-2" />
-                <span className="hidden md:inline">Vibe Coder</span>
+                <span className="hidden md:inline">mark coder</span>
               </Link>
             </Button>
             <VoiceModeToggle />
