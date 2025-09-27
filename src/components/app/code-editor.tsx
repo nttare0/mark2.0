@@ -91,7 +91,7 @@ export default function CodeEditor({}: CodeEditorProps) {
         onValueChange={setActiveTab}
         className="flex h-full flex-1 flex-col"
       >
-        <div className="flex items-center justify-between border-b px-4">
+        <div className="flex flex-col items-start justify-between border-b px-2 md:flex-row md:items-center md:px-4">
           <TabsList className="bg-transparent p-0">
             <TabsTrigger
               value="html"
@@ -118,28 +118,30 @@ export default function CodeEditor({}: CodeEditorProps) {
               Preview
             </TabsTrigger>
           </TabsList>
-          <div className="flex items-center gap-2">
+          <div className="flex w-full items-center gap-2 pb-2 md:w-auto md:pb-0">
             <Button
               variant="outline"
               size="sm"
               onClick={handlePreview}
               disabled={!html.trim()}
+              className="flex-1 md:flex-initial"
             >
               <Eye className="mr-2 h-4 w-4" />
               Full Preview
             </Button>
-            <Button variant="outline" size="sm" onClick={handleCopy}>
+            <Button variant="outline" size="sm" onClick={handleCopy} className="flex-1 md:flex-initial">
               {isCopied ? (
                 <Check className="mr-2 h-4 w-4 text-green-500" />
               ) : (
                 <Copy className="mr-2 h-4 w-4" />
               )}
-              Copy Code
+              Copy
             </Button>
             <Button
               variant="destructive-outline"
               size="sm"
               onClick={handleDelete}
+              className="flex-1 md:flex-initial"
             >
               <Trash2 className="mr-2 h-4 w-4" />
               Clear

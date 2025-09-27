@@ -19,17 +19,17 @@ export default function CodeEditorPage() {
 
   return (
     <div className="flex h-screen w-full flex-col bg-background">
-      <header className="flex h-16 shrink-0 items-center justify-between border-b px-6">
+      <header className="flex h-16 shrink-0 items-center justify-between border-b px-4 md:px-6">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold tracking-tight text-primary">Vibe Coder</h1>
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight text-primary">Vibe Coder</h1>
           </Link>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" asChild>
+          <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
             <Link href="/">
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Main Chat
+              <MessageSquare className="h-4 w-4 md:mr-2" />
+              <span className="hidden md:inline">Main Chat</span>
             </Link>
           </Button>
           <VoiceModeToggle />
@@ -41,7 +41,7 @@ export default function CodeEditorPage() {
           direction={isMobile ? 'vertical' : 'horizontal'}
           className="flex-1"
         >
-          <ResizablePanel defaultSize={35} minSize={25}>
+          <ResizablePanel defaultSize={35} minSize={20}>
             <ChatInterface />
           </ResizablePanel>
           <ResizableHandle withHandle />

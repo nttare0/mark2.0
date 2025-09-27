@@ -39,7 +39,7 @@ export default function ChatInterface() {
   const pathname = usePathname();
   const isCodingMode = pathname.includes('/code-editor');
   const initialMessage = isCodingMode
-    ? 'Hello! I am mark Coder. How can I help you with your website today?'
+    ? 'Hello! I am Vibe Coder. How can I help you with your website today?'
     : 'Hello! I am mark2.0. How can I assist you today?';
   
   const [messages, setMessages] = useState<Message[]>([
@@ -127,7 +127,6 @@ export default function ChatInterface() {
     setIsLoading(true);
 
     try {
-      const mode = isCodingMode ? 'coder' : 'assistant';
       const aiResponse = await askAI(text);
       let assistantMessage: Message;
       if (aiResponse.type === 'website' && aiResponse.website) {
@@ -268,7 +267,7 @@ export default function ChatInterface() {
         </div>
       )}
       <ScrollArea className="flex-1 p-4">
-        <div className="space-y-6 pr-4">
+        <div className="space-y-6 pr-2 md:pr-4">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -359,7 +358,7 @@ export default function ChatInterface() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask me anything..."
-            className="max-h-48 flex-1 resize-none overflow-y-auto rounded-full border-2 px-4 py-3 shadow-inner md:px-6"
+            className="max-h-48 flex-1 resize-none overflow-y-auto rounded-2xl border-2 px-4 py-2.5 shadow-inner md:rounded-full md:py-3 md:px-6"
             rows={1}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
@@ -376,7 +375,7 @@ export default function ChatInterface() {
             disabled={isLoading || isListening}
             aria-label={'Start listening'}
             variant={'outline'}
-            className="h-12 w-12 rounded-full"
+            className="h-11 w-11 shrink-0 rounded-full md:h-12 md:w-12"
           >
             <Mic className="h-5 w-5" />
           </Button>
@@ -385,7 +384,7 @@ export default function ChatInterface() {
             size="icon"
             disabled={isLoading || isListening || !input.trim()}
             aria-label="Send message"
-            className="h-12 w-12 rounded-full"
+            className="h-11 w-11 shrink-0 rounded-full md:h-12 md:w-12"
           >
             <SendHorizonal className="h-5 w-5" />
           </Button>
