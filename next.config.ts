@@ -30,12 +30,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    // This is required to make Next.js work with Firebase Studio.
-    allowedDevOrigins: [
-      'https://*.cloudworkstations.dev',
-    ],
-  },
 };
 
 export default nextConfig;
