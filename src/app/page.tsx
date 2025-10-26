@@ -19,7 +19,11 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" className="h-8 md:h-9">mark2.1</Button>
+            <Button variant="outline" className="h-8 md:h-9" asChild>
+              <Link href="https://mark210.netlify.app/mark210" target="_blank" rel="noopener noreferrer">
+                mark2.1
+              </Link>
+            </Button>
             <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
               <Link href="/code-editor">
                 <CodeXml className="h-4 w-4 md:mr-2" />
