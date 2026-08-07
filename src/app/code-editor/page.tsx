@@ -2,6 +2,7 @@
 
 import ChatInterface from '@/components/app/chat-interface';
 import CodeEditor from '@/components/app/code-editor';
+import SeoJsonLd from '@/components/app/seo-json-ld';
 import ThemeSwitcher from '@/components/app/theme-switcher';
 import VoiceModeToggle from '@/components/app/voice-mode-toggle';
 import { Button } from '@/components/ui/button';
@@ -10,8 +11,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
+import { FileText, MessageSquare } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CodeEditorPage() {
@@ -46,6 +47,7 @@ export default function CodeEditorPage() {
 
   return (
     <div className="flex h-screen w-full flex-col bg-background">
+      <SeoJsonLd />
       <header className="flex h-16 shrink-0 items-center justify-between border-b px-4 md:px-6">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2">
@@ -59,7 +61,19 @@ export default function CodeEditorPage() {
               <span className="hidden md:inline">Main Chat</span>
             </Link>
           </Button>
-          <VoiceModeToggle />
+            <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
+              <Link href="/terms-and-conditions">
+                <FileText className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Terms</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
+              <Link href="/privacy-policy">
+                <ShieldCheck className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Privacy</span>
+              </Link>
+            </Button>
+            <VoiceModeToggle />
           <ThemeSwitcher />
         </div>
       </header>

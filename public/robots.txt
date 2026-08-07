@@ -1,0 +1,17 @@
+# Robots.txt for mark2.0
+# https://mark2-0.vercel.app
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of internal Next.js files
+Disallow: /_next/
+
+# Disallow crawling of API routes
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://mark2-0.vercel.app/sitemap.xml
+
+# Crawl-delay (optional)
+# Crawl-delay: 5
