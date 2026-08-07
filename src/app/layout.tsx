@@ -8,8 +8,70 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'mark2.0',
-  description: 'A sophisticated conversational AI assistant app',
+  title: {
+    default: 'mark2.0 - Your Conversational AI Assistant',
+    template: '%s | mark2.0',
+  },
+  description: 'mark2.0 is a sophisticated conversational AI assistant with voice interaction, code generation, and web development capabilities. Built with Next.js, Genkit, and Google AI.',
+  keywords: ['AI', 'chatbot', 'conversational AI', 'voice assistant', 'code generation', 'web development', 'Gemini', 'Genkit', 'Next.js'],
+  authors: [{ name: 'Ntare Shema Prince' }],
+  creator: 'Ntare Shema Prince',
+  publisher: 'mark2.0',
+  
+  // Open Graph / Social Media
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://mark2-0.vercel.app/',
+    siteName: 'mark2.0',
+    title: 'mark2.0 - Your Conversational AI Assistant',
+    description: 'A sophisticated conversational AI assistant with voice interaction, code generation, and web development capabilities.',
+    images: [
+      {
+        url: 'https://mark2-0.vercel.app/api/og',
+        width: 1200,
+        height: 630,
+        alt: 'mark2.0 - AI Conversational Assistant',
+      },
+    ],
+  },
+  
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: 'mark2.0 - Your Conversational AI Assistant',
+    description: 'A sophisticated conversational AI assistant with voice interaction, code generation, and web development capabilities.',
+    images: ['https://mark2-0.vercel.app/api/og'],
+    creator: '@nttare0',
+  },
+  
+  // Robots
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  
+  // Canonical URL
+  alternates: {
+    canonical: 'https://mark2-0.vercel.app/',
+  },
+  
+  // Manifest
+  manifest: '/site.webmanifest',
+  
+  // Icons
+  icons: {
+    icon: [{ url: '/favicon.ico' }],
+    shortcut: [{ url: '/favicon-16x16.png' }],
+    apple: [{ url: '/apple-touch-icon.png' }],
+  },
 };
 
 const faviconSvg = `

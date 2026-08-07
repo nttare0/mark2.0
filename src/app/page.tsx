@@ -1,14 +1,16 @@
 import ChatInterface from '@/components/app/chat-interface';
 import MathFormulasBackground from '@/components/app/math-formulas-background';
+import SeoJsonLd from '@/components/app/seo-json-ld';
 import ThemeSwitcher from '@/components/app/theme-switcher';
 import { Button } from '@/components/ui/button';
-import { CodeXml } from 'lucide-react';
+import { CodeXml, FileText } from 'lucide-react';
 import Link from 'next/link';
 import VoiceModeToggle from '@/components/app/voice-mode-toggle';
 
 export default function HomePage() {
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center bg-background">
+      <SeoJsonLd />
       <MathFormulasBackground />
       <div className="z-10 flex h-full w-full flex-col md:h-[95vh] md:max-w-4xl md:rounded-xl md:border md:shadow-2xl">
         <header className="flex shrink-0 items-center justify-between border-b bg-card/80 p-2 backdrop-blur-sm md:rounded-t-xl md:p-4">
@@ -28,6 +30,18 @@ export default function HomePage() {
               <Link href="/code-editor">
                 <CodeXml className="h-4 w-4 md:mr-2" />
                 <span className="hidden md:inline">mark coder</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
+              <Link href="/terms-and-conditions">
+                <FileText className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Terms</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="icon" className="h-8 w-8 md:h-9 md:w-auto md:px-3" asChild>
+              <Link href="/privacy-policy">
+                <ShieldCheck className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Privacy</span>
               </Link>
             </Button>
             <VoiceModeToggle />
